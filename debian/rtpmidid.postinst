@@ -24,7 +24,7 @@ case "$1" in
             --home /run/rtpmidid --no-create-home \
             --gecos "rtpmidid daemon" rtpmidid
         addgroup --quiet rtpmidid
-        adduser --quiet rtpmidid audio
+        adduser --quiet audio rtpmidid
     ;;
 
     abort-upgrade|abort-remove|abort-deconfigure)
