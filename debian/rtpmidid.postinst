@@ -21,9 +21,11 @@ set -e
 case "$1" in
     configure)
         adduser --disabled-password  --quiet --system \
-            --home /run/rtpmidid --no-create-home \
+            --home /run/rtpmidid_21.11_armhf.deb --no-create-home \
             --gecos "rtpmidid daemon" rtpmidid
-        addgroup --quiet rtpmidid
+        if ! getent group rtpmidid >/dev/null; then
+            addgroup --quiet rtpmidid
+        fi
         adduser --quiet audio rtpmidid
     ;;
 
